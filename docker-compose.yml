@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: leave32_postgres
+    ports:
+      - "5514:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: new_employee_db
+    volumes:
+      - leave32_pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql 
+    networks:
+      - leave32-net
+
+  backend:
+    build: ./Backend
+    container_name: leave32_backend
+    ports:
+      - "3087:3087"
+    depends_on:
+      - postgres
+    environment:
+      - PGUSER=postgres
+      - PGPASSWORD=admin123
+      - PGDATABASE=new_employee_db
+      - PGPORT=5432
+      - PGHOST=postgres
+    networks:
+      - leave32-net
+
+  frontend:
+    build: ./Fronted
+    container_name: leave32_frontend
+    ports:
+      - "8311:80"
+    depends_on:
+      - backend
+    networks:
+      - leave32-net
+
+  hr_page:
+    build: ./HR_Page
+    container_name: leave32_hr
+    ports:
+      - "8312:80"
+    depends_on:
+      - backend
+    networks:
+      - leave32-net
+
+volumes:
+  leave32_pgdata:
+
+networks:
+  leave32-net:
+
