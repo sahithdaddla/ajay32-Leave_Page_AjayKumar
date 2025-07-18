@@ -9,50 +9,52 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            align-items: flex-start;
-            padding: 20px;
-            color: white;
+            align-items: center;
+            color: #333;
             background-color: #ffffff;
+            min-height: 100vh;
         }
 
         header {
             position: relative;
             text-align: center;
-            height: 120px;
-            background-color: #5f06a8;
+            height: 140px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
             color: #fff;
             border-radius: 15px;
             overflow: hidden;
             display: flex;
-            width: 98%;
+            width: 100%;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
         }
 
         header h1 {
             margin: 0;
-            font-size: 36px;
+            font-size: 2.5rem;
             color: white;
-            font-weight: 600;
-            letter-spacing: 2px;
+            font-weight: 700;
+            letter-spacing: 1px;
             position: relative;
             z-index: 2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         header p {
-            font-weight: 100;
-            font-size: 18px;
+            font-weight: 300;
+            font-size: 1.1rem;
             margin-top: 10px;
+            opacity: 0.9;
         }
 
         @keyframes moveCircles {
@@ -77,63 +79,78 @@
             height: 200px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            animation: moveCircles 10s infinite linear;
+            animation: moveCircles 15s infinite linear;
         }
 
         .circle:nth-child(1) {
             top: 10%;
             left: 20%;
-            animation-duration: 8s;
+            animation-duration: 15s;
         }
 
         .circle:nth-child(2) {
             top: 50%;
             left: 70%;
-            animation-duration: 12s;
+            animation-duration: 20s;
+            animation-direction: reverse;
         }
 
         .circle:nth-child(3) {
             top: 80%;
             left: 40%;
-            animation-duration: 15s;
+            animation-duration: 25s;
         }
 
         .page-container {
             display: flex;
             flex-direction: row;
             gap: 30px;
-            margin-top: 30px;
+            margin-top: 10px;
             width: 100%;
+            padding: 20px;
+            justify-content: space-between;
         }
 
         .leave-container {
-            width: 700px;
+            width: 65%;
             height: auto;
-            padding: 20px;
+            padding: 30px;
+            background: linear-gradient(rgb(221, 221, 255), white);
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
             border-radius: 20px;
-            background: linear-gradient(rgba(232, 232, 255, 0.763), rgba(255, 223, 255, 0.772));
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
         }
 
         .form-title {
-            font-size: 36px;
+            font-size: 2rem;
             text-align: center;
             margin-bottom: 20px;
-            color: #000000;
-            font-family: "Anta", serif;
-            background: linear-gradient(90deg, #560bad, #8a2be2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #2c3e50;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .form-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            border-radius: 3px;
         }
 
         .leave-form {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            padding-top: 40px;
+            gap: 25px;
+            padding-top: 20px;
             justify-items: stretch;
         }
 
@@ -141,24 +158,36 @@
             display: flex;
             flex-direction: column;
             font-size: 16px;
-            margin-bottom: 2px;
+            margin-bottom: 5px;
         }
 
         .form-group label {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #000000;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 500;
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
-            padding: 16px;
+            padding: 14px;
             border: 1px solid #ddd;
             border-radius: 8px;
-            font-size: 16px;
-            margin-bottom: 10px;
+            font-size: 1rem;
+            margin-bottom: 5px;
             height: 50px;
+            background: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #6a11cb;
+            box-shadow: 0 0 0 2px rgba(106, 17, 203, 0.1);
+            background: white;
         }
 
         .form-group select,
@@ -173,10 +202,10 @@
 
         textarea {
             width: 100%;
-            padding: 10px;
+            padding: 14px;
             box-sizing: border-box;
             resize: none;
-            font-size: 16px;
+            font-size: 1rem;
         }
 
         .counter {
@@ -199,25 +228,26 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-top: 10px;
         }
 
-        .btnn{
-            --color: #560bad;
+        .btnn {
+            --color: #6a11cb;
             --bg-color: #fff;
             font-family: inherit;
             display: inline-block;
             width: 320px;
-            height: 2.6em;
+            height: 3em;
             line-height: 2.5em;
-            margin: 20px;
+            margin: 10px;
             position: relative;
             cursor: pointer;
             overflow: hidden;
             border: 2px solid var(--color);
             transition: color 0.5s, background 0.5s;
             z-index: 1;
-            font-size: 17px;
-            border-radius: 16px;
+            font-size: 1.1rem;
+            border-radius: 10px;
             font-weight: 500;
             color: var(--color);
             background-color: var(--bg-color);
@@ -260,26 +290,84 @@
         }
 
         .error-message {
-            color: red;
-            font-size: 14px;
+            color: #e74c3c;
+            font-size: 0.85rem;
             display: none;
             margin-top: 5px;
+            font-weight: 500;
         }
 
         .calendar-cards {
-            width: 500px;
-            flex-wrap: wrap;
+            width: 32%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .calendar-container {
+            width: 100%;
+            background: linear-gradient(rgb(94, 94, 249), rgb(146, 146, 255));
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .calendar-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .calendar-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            color: white;
+        }
+
+        .calendar-nav button {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #ffffff;
+            padding: 5px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .calendar-nav button:hover {
+            background: rgba(106, 17, 203, 0.1);
+        }
+
+        .calendar-month {
+            font-weight: 600;
+            min-width: 120px;
+            text-align: center;
         }
 
         .calendar {
             width: 100%;
-            height: 370px;
-            background: linear-gradient(135deg, #8a2be2, #87ceeb, #ffffff);
+            height: auto;
+            background: linear-gradient(rgba(194, 194, 255, 0.527), rgb(241, 168, 255));
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 20px;
+            padding: 10px;
             box-sizing: border-box;
-            margin-top: 20px;
         }
 
         .calendar .header {
@@ -287,75 +375,91 @@
             justify-content: space-between;
             font-weight: 600;
             margin-bottom: 10px;
-            color: #333;
-            border-bottom: 2px solid #ccc;
+            color: #000000;
             padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
         }
 
         .calendar .header span {
             flex: 1;
             text-align: center;
+            font-size: 0.9rem;
+            color: #000000;
         }
 
         .calendar .days {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
+            gap: 8px;
         }
 
         .calendar .day {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 40px;
-            border-radius: 50%;
+            height: 35px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
             font-weight: 500;
-            color: #333;
+            color: #000000;
             position: relative;
+            font-size: 0.9rem;
+        }
+
+        .calendar .day:hover {
+            background: #f1f1f1;
         }
 
         .calendar .day.leave {
-            background-color: #66cc66;
+            background-color: #2ecc71;
             color: #fff;
         }
 
         .calendar .day.holiday {
-            background-color: #ffcc00;
-            color: #000;
+            background-color: #f39c12;
+            color: #fff;
         }
 
         .calendar .day.today {
-            background-color: #0077ff;
+            background-color: #3498db;
             color: #fff;
+            font-weight: 600;
+        }
+
+        .calendar .day.other-month {
+            color: transparent;
+        }
+
+        .calendar .day.other-month:hover {
+            background-color: none;
         }
 
         .calendar .day[data-tooltip]:hover::after {
             content: attr(data-tooltip);
             position: absolute;
-            top: -30px;
+            top: -40px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: #333;
+            background-color: #34495e;
             color: #fff;
             padding: 5px 10px;
             border-radius: 5px;
-            font-size: 12px;
+            font-size: 0.8rem;
             white-space: nowrap;
             z-index: 10;
+            pointer-events: none;
         }
 
         .leave-stats {
             width: 100%;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 20px;
-            box-shadow: none;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
             gap: 15px;
         }
@@ -371,72 +475,74 @@
         .leave-stats img {
             width: 30px;
             height: 30px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            filter: hue-rotate(200deg);
         }
 
         .leave-stats h3 {
-            font-size: 18px;
-            font-weight: 500;
-            color: #333;
-            margin-bottom: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
         }
 
         .leave-stats p {
-            font-size: 16px;
-            font-weight: 400;
-            color: #555;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #6a11cb;
         }
 
         .leaves-section {
             width: 100%;
-            margin-top: 30px;
-            background: #ffffff;
-            border-radius: 12px;
+            background: white;
+            border-radius: 15px;
             padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            height: 800px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
         }
 
         .leaves-section h2 {
-            font-size: 24px;
-            color: #333;
+            font-size: 1.3rem;
+            color: #2c3e50;
             margin-bottom: 20px;
-            text-align: center;
-            font-family: "Anta", serif;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-weight: 600;
         }
 
         .view-all-btn {
-            background: linear-gradient(135deg, #5f06a8, #8a2be2);
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
             color: white;
             border: none;
             padding: 8px 16px;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .view-all-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         }
 
         .leaves-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: 1fr;
+            gap: 15px;
             padding: 0;
         }
 
         .leave-card {
-            background: linear-gradient(135deg, #f3e7ff, #e0f7fa);
+            background: white;
             border: 1px solid #e0e0e0;
-            border-radius: 15px;
-            padding: 20px;
+            border-radius: 12px;
+            padding: 15px;
             color: #000;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
             gap: 12px;
@@ -447,8 +553,9 @@
         }
 
         .leave-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-color: #6a11cb;
         }
 
         .leave-card::before {
@@ -456,9 +563,9 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 5px;
+            width: 4px;
             height: 100%;
-            background: linear-gradient(to bottom, #5f06a8, #8a2be2);
+            background: linear-gradient(to bottom, #6a11cb, #2575fc);
         }
 
         .leave-card-header {
@@ -471,24 +578,25 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #8a2be2, #5f06a8);
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: bold;
+            flex-shrink: 0;
         }
 
         .leave-card-title {
-            font-size: 18px;
+            font-size: 1rem;
             font-weight: 600;
             margin: 0;
-            color: #333;
+            color: #2c3e50;
         }
 
         .leave-card-type {
-            font-size: 14px;
-            color: #5f06a8;
+            font-size: 0.85rem;
+            color: #6a11cb;
             font-weight: 500;
         }
 
@@ -496,7 +604,7 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-            margin-top: 8px;
+            margin-top: 5px;
         }
 
         .leave-card-detail {
@@ -506,12 +614,14 @@
 
         .leave-card-label {
             font-weight: 500;
-            color: #666;
+            color: #7f8c8d;
+            font-size: 0.85rem;
         }
 
         .leave-card-value {
-            color: #333;
+            color: #2c3e50;
             text-align: right;
+            font-size: 0.85rem;
         }
 
         .leave-card-status {
@@ -519,8 +629,8 @@
             padding: 4px 12px;
             border-radius: 20px;
             font-weight: 600;
-            font-size: 12px;
-            margin-top: 8px;
+            font-size: 0.75rem;
+            margin-top: 5px;
             align-self: flex-start;
         }
 
@@ -540,37 +650,40 @@
         }
 
         .leave-card .details-button {
-            padding: 6px 10px;
-            background-color: #666;
+            padding: 6px 12px;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
             color: #fff;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
-            font-family: Arial, sans-serif;
-            font-size: 12px;
+            font-size: 0.8rem;
             font-weight: 500;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
             width: 100px;
             align-self: flex-end;
+            margin-top: 5px;
         }
 
         .leave-card .details-button:hover {
-            background-color: #555;
+            opacity: 0.9;
+            transform: translateY(-1px);
         }
 
-        .no-data {
+        .no-data, .loading-state {
             text-align: center;
             padding: 20px;
         }
 
-        .no-data img {
-            width: 150px;
-            height: 150px;
+        .no-data img, .loading-state img {
+            width: 100px;
+            height: 100px;
+            opacity: 0.5;
         }
 
-        .no-data p {
-            font-size: 14px;
-            color: #555;
+        .no-data p, .loading-state p {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-top: 10px;
         }
 
         .modal {
@@ -588,21 +701,53 @@
 
         .modal-content {
             background: white;
-            padding: 20px;
-            border-radius: 10px;
+            padding: 25px;
+            border-radius: 15px;
             line-height: 1.6;
             width: 90%;
-            max-width: 700px;
+            max-width: 500px;
             max-height: 80vh;
             overflow: auto;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             position: relative;
+        }
+
+        .modal-content h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .modal-content .close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #7f8c8d;
+            transition: all 0.3s ease;
+        }
+
+        .modal-content .close:hover {
+            color: #e74c3c;
         }
 
         #modal-details {
             display: flex;
             flex-direction: column;
             gap: 15px;
+        }
+
+        #modal-details p {
+            margin: 5px 0;
+            font-size: 0.95rem;
+            color: #2c3e50;
+        }
+
+        #modal-details .leave-card-status {
+            margin-left: 5px;
         }
 
         .all-leaves-modal {
@@ -625,8 +770,8 @@
             max-width: 800px;
             max-height: 80vh;
             overflow-y: auto;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
 
         .all-leaves-header {
@@ -634,27 +779,27 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
             border-bottom: 1px solid #eee;
         }
 
         .all-leaves-title {
-            font-size: 22px;
+            font-size: 1.5rem;
             font-weight: 600;
-            color: #333;
+            color: #2c3e50;
         }
 
         .all-leaves-close {
             background: none;
             border: none;
-            font-size: 24px;
+            font-size: 1.5rem;
             cursor: pointer;
-            color: #666;
+            color: #7f8c8d;
             transition: all 0.3s ease;
         }
 
         .all-leaves-close:hover {
-            color: #ff0000;
+            color: #e74c3c;
             transform: rotate(90deg);
         }
 
@@ -668,14 +813,15 @@
             position: fixed;
             top: 20px;
             left: -400px;
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
             color: white;
             padding: 15px 25px;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            font-size: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            font-size: 1rem;
             z-index: 1000;
             transition: left 0.5s ease-in-out;
+            font-weight: 500;
         }
 
         .popup-card.show {
@@ -684,6 +830,79 @@
 
         .popup-card.hide {
             left: -400px;
+        }
+
+        .confirmation-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .confirmation-modal-content {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .confirmation-modal-content h2 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .confirmation-modal-content p {
+            color: #2c3e50;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .confirmation-modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .confirmation-modal-buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .confirm-btn {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            font-weight: 500;
+        }
+
+        .confirm-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .cancel-btn {
+            background: #e0e0e0;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .cancel-btn:hover {
+            background: #d0d0d0;
+            transform: translateY(-2px);
         }
 
         @media (max-width: 1200px) {
@@ -695,15 +914,23 @@
             .leave-container,
             .calendar-cards {
                 width: 100%;
-                max-width: 700px;
-            }
-
-            .leave-stats {
-                width: 100%;
+                max-width: 800px;
             }
         }
 
         @media (max-width: 768px) {
+            header {
+                height: 120px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
             .leave-form {
                 grid-template-columns: 1fr;
             }
@@ -713,52 +940,90 @@
             }
 
             .form-title {
-                font-size: 28px;
+                font-size: 1.5rem;
             }
 
-            header h1 {
-                font-size: 28px;
+            .leave-container {
+                padding: 20px;
             }
 
-            .leaves-cards, .all-leaves-grid {
-                grid-template-columns: 1fr;
+            .btnn {
+                width: 100%;
+                font-size: 1rem;
             }
 
-            .leave-card {
-                padding: 15px;
+            .calendar .day {
+                height: 30px;
+                font-size: 0.8rem;
             }
 
             .leave-card-title {
-                font-size: 16px;
+                font-size: 0.95rem;
             }
 
-            .leave-card-type, .leave-card-value, .leave-card-label {
-                font-size: 13px;
+            .leave-card-type,
+            .leave-card-value,
+            .leave-card-label {
+                font-size: 0.8rem;
             }
 
             .leave-card-status {
-                font-size: 11px;
-                padding: 3px 10px;
+                font-size: 0.7rem;
             }
 
             .leave-card .details-button {
                 width: 90px;
-                font-size: 11px;
+                font-size: 0.8rem;
             }
 
             .view-all-btn {
-                font-size: 13px;
-                padding: 7px 14px;
-            }
-
-            .leave-stats {
-                flex-direction: column;
-                gap: 10px;
+                font-size: 0.8rem;
             }
 
             .all-leaves-content {
                 width: 95%;
                 padding: 15px;
+            }
+
+            .all-leaves-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                height: 100px;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            header p {
+                font-size: 0.9rem;
+            }
+
+            .leave-container {
+                padding: 15px;
+            }
+
+            .form-title {
+                font-size: 1.3rem;
+            }
+
+            .calendar-header {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+
+            .calendar-nav {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .calendar-month {
+                min-width: auto;
             }
         }
     </style>
@@ -776,6 +1041,7 @@
 
     <div class="page-container">
         <div class="leave-container">
+            <h2 class="form-title">Leave Application</h2>
             <form class="leave-form" id="leave-form">
                 <div class="form-group">
                     <label for="name">Full Name:</label>
@@ -787,18 +1053,19 @@
 
                 <div class="form-group">
                     <label for="emp-id">Employee ID:</label>
-                    <input type="text" id="emp-id" name="emp-id" placeholder="Enter your Employee ID" required minlength="7" maxlength="7" pattern="^[A-Z]{3}0[0-9]{3}$"
-                           title="Employee ID should be in the format: 3 uppercase letters followed by 4 digits">
+                    <input type="text" id="emp-id" name="emp-id" placeholder="Enter your Employee ID" required minlength="7" maxlength="7" 
+                           pattern="^[ATS]{3}0(?!000)[0-9]{3}$"
+                           title="Please enter a valid Employee ID (ATS0 followed by 3 digits, not all zeros)">
                     <p id="error-message-emp-id" class="error-message"></p>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Email Address:</label>
-                    <input id="email" type="email" placeholder="Enter your Email ID" required minlength="8" maxlength="50"
-                           pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z]{2,15}\.[a-zA-Z]{2,3}$"
-                           title="Please enter a valid email address">
-                    <p id="error-message-email" class="error-message"></p>
-                </div>
+               <div class="form-group">
+    <label for="email">Email Address:</label>
+    <input id="email" type="email" placeholder="Enter your Email ID" required minlength="8" maxlength="50"
+           pattern="^[a-zA-Z][a-zA-Z0-9._-]{1,}[a-zA-Z]@astrolitetech\.com$"
+           title="Email must start with a letter, end with a letter, and have a domain of @astrolitetech.com">
+    <p id="error-message-email" class="error-message"></p>
+</div>
 
                 <div class="form-group">
                     <label for="leave-type">Type of Leave:</label>
@@ -806,6 +1073,9 @@
                         <option value="sick">Sick Leave</option>
                         <option value="casual">Casual Leave</option>
                         <option value="earned">Earned Leave</option>
+                        <option value="paternity">Paternity Leave</option>
+                        <option value="maternity">Maternity Leave</option>
+                        <option value="marriage">Marriage Leave</option>
                     </select>
                 </div>
 
@@ -847,7 +1117,7 @@
                 <div>
                     <img src="https://cdn-icons-png.freepik.com/512/10723/10723284.png" alt="Allocated Leaves Icon">
                     <h3>Allocated Leaves</h3>
-                    <p id="allocated-leaves">30</p>
+                    <p id="allocated-leaves">45</p>
                 </div>
                 <div>
                     <img src="https://cdn-icons-png.flaticon.com/512/3387/3387188.png" alt="Remaining Leaves Icon">
@@ -858,17 +1128,26 @@
         </div>
 
         <div class="calendar-cards">
-            <div class="calendar">
-                <div class="header">
-                    <span>Sun</span>
-                    <span>Mon</span>
-                    <span>Tue</span>
-                    <span>Wed</span>
-                    <span>Thu</span>
-                    <span>Fri</span>
-                    <span>Sat</span>
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <div class="calendar-nav">
+                        <button id="prev-month"><</button>
+                        <div class="calendar-month" id="calendar-month">May 2023</div>
+                        <button id="next-month">></button>
+                    </div>
                 </div>
-                <div class="days" id="days"></div>
+                <div class="calendar">
+                    <div class="header">
+                        <span>Sun</span>
+                        <span>Mon</span>
+                        <span>Tue</span>
+                        <span>Wed</span>
+                        <span>Thu</span>
+                        <span>Fri</span>
+                        <span>Sat</span>
+                    </div>
+                    <div class="days" id="days"></div>
+                </div>
             </div>
             <div class="leaves-section">
                 <h2>
@@ -896,6 +1175,17 @@
                 <div class="all-leaves-grid" id="all-leaves-container"></div>
             </div>
         </div>
+
+        <div id="confirmation-modal" class="confirmation-modal">
+            <div class="confirmation-modal-content">
+                <h2>Confirm Leave Submission</h2>
+                <p>Are you sure you want to submit this leave request?</p>
+                <div class="confirmation-modal-buttons">
+                    <button class="confirm-btn" id="confirm-submit">Confirm</button>
+                    <button class="cancel-btn" id="cancel-submit">Cancel</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="popup-card" class="popup-card">
@@ -903,563 +1193,672 @@
     </div>
 
     <script>
-        const API_BASE_URL = 'http://16.171.140.12:3087'; // Change to 'http://192.168.1.100:3000' if using specific IP
+        const API_BASE_URL = 'http://16.171.140.12:3087';
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
+let cachedLeaves = []; // Cache for leave data
+let lastEmpId = null; // Track last fetched empId
+let pendingLeaveDetails = null; // Store leave details temporarily
 
-        document.addEventListener('DOMContentLoaded', function () {
-            // Set up date constraints
-            const today = new Date();
-            const threeMonthsAgo = new Date();
-            threeMonthsAgo.setMonth(today.getMonth() - 3);
+// Debounce utility
+function debounce(func, wait) {
+    let timeout;
+    return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+}
 
-            const oneYearFromNow = new Date();
-            oneYearFromNow.setFullYear(today.getFullYear() + 1);
+document.addEventListener('DOMContentLoaded', function () {
+    // Set up date constraints
+    const today = new Date();
+    const threeMonthsAgo = new Date();
+    threeMonthsAgo.setMonth(today.getMonth() - 3);
 
-            // Format dates for input min/max attributes (YYYY-MM-DD)
-            const formatDate = (date) => date.toISOString().split('T')[0];
+    const oneYearFromNow = new Date();
+    oneYearFromNow.setFullYear(today.getFullYear() + 1);
 
-            // Set date constraints
-            const fromDateInput = document.getElementById('from-date');
-            const toDateInput = document.getElementById('to-date');
+    // Format dates for input min/max attributes (YYYY-MM-DD)
+    const formatDate = (date) => date.toISOString().split('T')[0];
 
-            fromDateInput.min = formatDate(threeMonthsAgo);
-            fromDateInput.max = formatDate(oneYearFromNow);
+    // Set date constraints
+    const fromDateInput = document.getElementById('from-date');
+    const toDateInput = document.getElementById('to-date');
 
-            toDateInput.min = formatDate(threeMonthsAgo);
-            toDateInput.max = formatDate(oneYearFromNow);
+    fromDateInput.min = formatDate(threeMonthsAgo);
+    fromDateInput.max = formatDate(oneYearFromNow);
 
-            // Initialize form
-            initializeForm();
-            loadLeaves();
-            loadCalendar();
+    toDateInput.min = formatDate(threeMonthsAgo);
+    toDateInput.max = formatDate(oneYearFromNow);
+
+    // Initialize form
+    initializeForm();
+    loadCalendar(); // Load calendar without leaves initially
+    // Load leaves only when empId is valid
+    document.getElementById('emp-id').addEventListener('change', debounce(() => {
+        if (validateEmpId()) {
+            fetchAndUpdateLeaves();
             updateLeaveStats();
-        });
-
-        function initializeForm() {
-            // Set up event listeners for validation
-            document.getElementById('name').addEventListener('input', validateName);
-            document.getElementById('emp-id').addEventListener('input', validateEmpId);
-            document.getElementById('email').addEventListener('input', validateEmail);
-            document.getElementById('reason').addEventListener('input', validateReason);
-            document.getElementById('from-date').addEventListener('change', validateFromDate);
-            document.getElementById('to-date').addEventListener('change', validateToDate);
-            document.getElementById('from-hour').addEventListener('change', validateFromHour);
-            document.getElementById('to-hour').addEventListener('change', validateToHour);
-
-            // Toggle hour selection based on date range
-            const fromDateInput = document.getElementById('from-date');
-            const toDateInput = document.getElementById('to-date');
-            const hourSelection = document.querySelectorAll('#hour-selection');
-
-            function toggleHourSelection() {
-                if (fromDateInput.value === toDateInput.value) {
-                    hourSelection.forEach(el => el.style.display = 'block');
-                } else {
-                    hourSelection.forEach(el => el.style.display = 'none');
-                    document.getElementById('from-hour').value = '';
-                    document.getElementById('to-hour').value = '';
-                }
-            }
-
-            fromDateInput.addEventListener('change', toggleHourSelection);
-            toDateInput.addEventListener('change', toggleHourSelection);
-
-            // Form submission
-            document.getElementById('leave-form').addEventListener('submit', function (event) {
-                event.preventDefault();
-                if (!validateForm()) return;
-
-                const leaveDetails = {
-                    name: document.getElementById('name').value,
-                    emp_id: document.getElementById('emp-id').value,
-                    email: document.getElementById('email').value,
-                    leave_type: document.getElementById('leave-type').value,
-                    from_date: document.getElementById('from-date').value,
-                    to_date: document.getElementById('to-date').value,
-                    from_hour: document.getElementById('from-hour').value || null,
-                    to_hour: document.getElementById('to-hour').value || null,
-                    reason: document.getElementById('reason').value
-                };
-                console.log('Submitting leaveDetails:', leaveDetails);
-
-                fetch(`${API_BASE_URL}/api/leaves`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(leaveDetails)
-                })
-                    .then(response => {
-                        if (!response.ok) {
-                            return response.json().then(err => { throw new Error(err.error || 'Unknown server error'); });
-                        }
-                        return response.json();
-                    })
-                    .then(() => {
-                        showPopup('Leave request submitted successfully', true);
-                        document.getElementById('leave-form').reset();
-                        hourSelection.forEach(el => el.style.display = 'none');
-                        loadLeaves();
-                        loadCalendar();
-                        updateLeaveStats();
-                    })
-                    .catch(error => {
-                        console.error('Error submitting leave:', error);
-                        showPopup(error.message || 'Error submitting leave request', false);
-                    });
-            });
-
-            // Modal close functionality for details modal
-            document.querySelectorAll('.close').forEach(closeBtn => {
-                closeBtn.addEventListener('click', function () {
-                    this.closest('.modal').style.display = 'none';
-                });
-            });
-
-            window.addEventListener('click', function (event) {
-                if (event.target === document.getElementById('modal')) {
-                    document.getElementById('modal').style.display = 'none';
-                }
-            });
-
-            // View All modal event listeners
-            document.getElementById('view-all-btn').addEventListener('click', () => {
-                document.getElementById('all-leaves-modal').style.display = 'flex';
-            });
-
-            document.querySelector('.all-leaves-close').addEventListener('click', () => {
-                document.getElementById('all-leaves-modal').style.display = 'none';
-            });
-
-            window.addEventListener('click', (event) => {
-                if (event.target === document.getElementById('all-leaves-modal')) {
-                    document.getElementById('all-leaves-modal').style.display = 'none';
-                }
-            });
         }
+    }, 500));
 
-        // Validation functions
-        function validateName() {
-            const nameInput = document.getElementById('name');
-            const errorMessage = document.getElementById('error-message-name');
-            const regex = /^[A-Za-z]+(?:\.[A-Za-z]+)*(?: [A-Za-z]+)*(?:\.[A-Za-z]+){0,3}$/;
-
-            if (!regex.test(nameInput.value)) {
-                errorMessage.textContent = "Invalid name. No leading/trailing spaces, no consecutive spaces, max 8 spaces, max 3 periods.";
-                errorMessage.style.display = 'block';
-                return false;
-            } else {
-                errorMessage.style.display = 'none';
-                return true;
-            }
+    // Calendar navigation
+    document.getElementById('prev-month').addEventListener('click', () => {
+        currentMonth--;
+        if (currentMonth < 0) {
+            currentMonth = 11;
+            currentYear--;
         }
+        loadCalendar();
+    });
 
-        function validateEmpId() {
-            const empIdInput = document.getElementById('emp-id');
-            const errorMessage = document.getElementById('error-message-emp-id');
-            const regex = /^[A-Z]{3}0[0-9]{3}$/;
-
-            if (!regex.test(empIdInput.value)) {
-                errorMessage.textContent = "Invalid Employee ID. Format: 3 uppercase letters + 4 digits (e.g., ABC0123).";
-                errorMessage.style.display = 'block';
-                return false;
-            } else {
-                errorMessage.style.display = 'none';
-                return true;
-            }
+    document.getElementById('next-month').addEventListener('click', () => {
+        currentMonth++;
+        if (currentMonth > 11) {
+            currentMonth = 0;
+            currentYear++;
         }
+        loadCalendar();
+    });
+});
 
-        function validateEmail() {
-            const emailInput = document.getElementById('email');
-            const errorMessage = document.getElementById('error-message-email');
-            const regex = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z]{2,15}\.[a-zA-Z]{2,3}$/;
+function initializeForm() {
+    // Set up event listeners for validation
+    document.getElementById('name').addEventListener('input', validateName);
+    document.getElementById('emp-id').addEventListener('input', validateEmpId);
+    document.getElementById('email').addEventListener('input', validateEmail);
+    document.getElementById('reason').addEventListener('input', validateReason);
+    document.getElementById('from-date').addEventListener('change', validateFromDate);
+    document.getElementById('to-date').addEventListener('change', validateToDate);
+    document.getElementById('from-hour').addEventListener('change', validateFromHour);
+    document.getElementById('to-hour').addEventListener('change', validateToHour);
 
-            if (!regex.test(emailInput.value)) {
-                errorMessage.textContent = "Invalid email. Domain must end with at least two alphabets (e.g., .in, .org, .edu).";
-                errorMessage.style.display = 'block';
-                return false;
-            } else {
-                errorMessage.style.display = 'none';
-                return true;
-            }
+    // Toggle hour selection based on date range
+    const fromDateInput = document.getElementById('from-date');
+    const toDateInput = document.getElementById('to-date');
+    const hourSelection = document.querySelectorAll('#hour-selection');
+
+    function toggleHourSelection() {
+        if (fromDateInput.value === toDateInput.value) {
+            hourSelection.forEach(el => el.style.display = 'block');
+        } else {
+            hourSelection.forEach(el => el.style.display = 'none');
+            document.getElementById('from-hour').value = '';
+            document.getElementById('to-hour').value = '';
         }
+    }
 
-        function validateReason() {
-            const reasonInput = document.getElementById('reason');
-            const errorMessage = document.getElementById('error-message-reason');
-            const pattern = /^[A-Za-z][A-Za-z0-9\s,.]*$/;
-            const invalidConsecutive = /(,{2,}|\.{2,}|\s{2,}|,\s,|\.\s\.|,\s\.|\.\s,)/;
+    fromDateInput.addEventListener('change', toggleHourSelection);
+    toDateInput.addEventListener('change', toggleHourSelection);
 
-            errorMessage.textContent = '';
-            errorMessage.style.display = 'none';
+    // Form submission with confirmation modal
+    document.getElementById('leave-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (!validateForm()) return;
 
-            if (reasonInput.value.length < 5 || reasonInput.value.length > 100) {
-                errorMessage.textContent = "Reason must be between 5 and 100 characters.";
-                errorMessage.style.display = 'block';
-                return false;
-            }
-
-            if (!pattern.test(reasonInput.value)) {
-                errorMessage.textContent = "Reason must start with a letter and can only contain letters, numbers, spaces, commas, and periods.";
-                errorMessage.style.display = 'block';
-                return false;
-            }
-
-            if (invalidConsecutive.test(reasonInput.value)) {
-                errorMessage.textContent = "Reason contains invalid consecutive characters (e.g., ',,' or '..').";
-                errorMessage.style.display = 'block';
-                return false;
-            }
-
-            return true;
-        }
-
-        function validateFromDate() {
-            const fromDateInput = document.getElementById('from-date');
-            const errorMessage = document.getElementById('error-message-from-date');
-            const today = new Date();
-            const threeMonthsAgo = new Date();
-            threeMonthsAgo.setMonth(today.getMonth() - 3);
-            const oneYearFromNow = new Date();
-            oneYearFromNow.setFullYear(today.getFullYear() + 1);
-
-            const selectedDate = new Date(fromDateInput.value);
-
-            if (selectedDate < threeMonthsAgo || selectedDate > oneYearFromNow) {
-                errorMessage.textContent = `From Date must be between ${threeMonthsAgo.toLocaleDateString()} and ${oneYearFromNow.toLocaleDateString()}.`;
-                errorMessage.style.display = 'block';
-                return false;
-            } else {
-                errorMessage.style.display = 'none';
-                return true;
-            }
-        }
-
-        function validateToDate() {
-            const fromDateInput = document.getElementById('from-date');
-            const toDateInput = document.getElementById('to-date');
-            const errorMessage = document.getElementById('error-message-to-date');
-            const today = new Date();
-            const oneYearFromNow = new Date();
-            oneYearFromNow.setFullYear(today.getFullYear() + 1);
-
-            const fromDate = new Date(fromDateInput.value);
-            const toDate = new Date(toDateInput.value);
-
-            if (toDate < fromDate) {
-                errorMessage.textContent = "To Date cannot be less than From Date.";
-                errorMessage.style.display = 'block';
-                return false;
-            } else if (toDate > oneYearFromNow) {
-                errorMessage.textContent = `To Date cannot be more than one year from now (${oneYearFromNow.toLocaleDateString()}).`;
-                errorMessage.style.display = 'block';
-                return false;
-            } else {
-                errorMessage.style.display = 'none';
-                return true;
-            }
-        }
-
-        function validateFromHour() {
-            const fromHourInput = document.getElementById('from-hour');
-            const toHourInput = document.getElementById('to-hour');
-            const errorMessage = document.getElementById('error-message-from-hour');
-
-            const fromHour = fromHourInput.value;
-            const toHour = toHourInput.value;
-
-            if (fromHour && toHour && fromHour >= toHour) {
-                errorMessage.textContent = "From Hour must be less than To Hour.";
-                errorMessage.style.display = 'block';
-                return false;
-            } else {
-                errorMessage.style.display = 'none';
-                return true;
-            }
-        }
-
-        function validateToHour() {
-            const fromHourInput = document.getElementById('from-hour');
-            const toHourInput = document.getElementById('to-hour');
-            const errorMessage = document.getElementById('error-message-to-hour');
-
-            const fromHour = fromHourInput.value;
-            const toHour = toHourInput.value;
-
-            if (fromHour && toHour && toHour <= fromHour) {
-                errorMessage.textContent = "To Hour must be at least 30 minutes after From Hour.";
-                errorMessage.style.display = 'block';
-                return false;
-            } else {
-                errorMessage.style.display = 'none';
-                return true;
-            }
-        }
-
-        function validateForm() {
-            const isNameValid = validateName();
-            const isEmpIdValid = validateEmpId();
-            const isEmailValid = validateEmail();
-            const isReasonValid = validateReason();
-            const isFromDateValid = validateFromDate();
-            const isToDateValid = validateToDate();
-            const isFromHourValid = validateFromHour();
-            const isToHourValid = validateToHour();
-
-            return isNameValid && isEmpIdValid && isEmailValid && isReasonValid &&
-                   isFromDateValid && isToDateValid && isFromHourValid && isToHourValid;
-        }
-
-        function updateLeaveStats() {
-            const empId = document.getElementById('emp-id').value;
-            if (!empId) return;
-            fetch(`${API_BASE_URL}/api/leave-stats/${empId}`)
-                .then(response => {
-                    if (!response.ok) {
-                        return response.json().then(err => { throw new Error(err.error || 'Failed to fetch leave stats'); });
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    document.getElementById('allocated-leaves').textContent = data.allocatedLeaves;
-                    document.getElementById('current-leaves').textContent = data.remainingLeaves;
-                })
-                .catch(error => {
-                    console.error('Error fetching leave stats:', error);
-                    showPopup(error.message || 'Error fetching leave stats', false);
-                });
-        }
-
-        function loadLeaves() {
-            const empId = document.getElementById('emp-id').value;
-            if (!empId) return;
-            fetch(`${API_BASE_URL}/api/leaves/${empId}`)
-                .then(response => {
-                    if (!response.ok) {
-                        return response.json().then(err => { throw new Error(err.error || 'Failed to fetch leaves'); });
-                    }
-                    return response.json();
-                })
-                .then(leaves => {
-                    // Sort leaves by date (newest first)
-                    leaves.sort((a, b) => new Date(b.from_date) - new Date(a.from_date));
-                    
-                    const leaveCardsContainer = document.getElementById('leave-cards');
-                    const allLeavesContainer = document.getElementById('all-leaves-container');
-                    leaveCardsContainer.innerHTML = '';
-                    allLeavesContainer.innerHTML = '';
-
-                    if (leaves.length === 0) {
-                        leaveCardsContainer.innerHTML = `
-                            <div class="no-data">
-                                <img src="https://cdn-icons-png.flaticon.com/512/4076/4076478.png" alt="No Data" class="no-data-img">
-                                <p>No leave requests found.</p>
-                            </div>
-                        `;
-                        document.getElementById('view-all-btn').style.display = 'none';
-                        return;
-                    }
-
-                    // Show only 3 most recent leaves in main view
-                    const recentLeaves = leaves.slice(0, 3);
-                    recentLeaves.forEach((leave, index) => {
-                        leaveCardsContainer.appendChild(createLeaveCard(leave));
-                    });
-
-                    // Add all leaves to the modal
-                    leaves.forEach((leave, index) => {
-                        allLeavesContainer.appendChild(createLeaveCard(leave));
-                    });
-
-                    // Show "View All" button if there are more than 3 leaves
-                    document.getElementById('view-all-btn').style.display = 
-                        leaves.length > 3 ? 'block' : 'none';
-                })
-                .catch(error => {
-                    console.error('Error loading leaves:', error);
-                    showPopup(error.message || 'Error loading leave requests', false);
-                });
-        }
-
-        function createLeaveCard(leave) {
-            const card = document.createElement('div');
-            card.className = 'leave-card';
-            const statusClass = `status-${leave.status.toLowerCase()}`;
-            const initials = leave.name.split(' ').map(n => n[0]).join('').toUpperCase();
-            
-            card.innerHTML = `
-                <div class="leave-card-header">
-                    <div class="leave-card-avatar">${initials}</div>
-                    <div>
-                        <h3 class="leave-card-title">${leave.name}</h3>
-                        <p class="leave-card-type">${leave.leave_type}</p>
-                    </div>
-                </div>
-                <div class="leave-card-details">
-                    <div class="leave-card-detail">
-                        <span class="leave-card-label">Period:</span>
-                        <span class="leave-card-value">${formatDisplayDate(leave.from_date)} - ${formatDisplayDate(leave.to_date)}</span>
-                    </div>
-                    ${leave.from_hour && leave.to_hour ? `
-                    <div class="leave-card-detail">
-                        <span class="leave-card-label">Time:</span>
-                        <span class="leave-card-value">${leave.from_hour} - ${leave.to_hour}</span>
-                    </div>
-                    ` : ''}
-                    <div class="leave-card-detail">
-                        <span class="leave-card-label">Status:</span>
-                        <span class="leave-card-status ${statusClass}">${leave.status}</span>
-                    </div>
-                </div>
-                <button class="details-button">View Details</button>
-            `;
-            
-            // Add click event to show details
-            card.querySelector('.details-button').addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevent card click from triggering
-                showDetails(leave.id);
-            });
-            card.addEventListener('click', () => showDetails(leave.id));
-            return card;
-        }
-
-        function formatDisplayDate(dateString) {
-            const date = new Date(dateString);
-            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-        }
-
-        function showDetails(id) {
-            fetch(`${API_BASE_URL}/api/leaves`)
-                .then(response => {
-                    if (!response.ok) {
-                        return response.json().then(err => { throw new Error(err.error || 'Failed to fetch leaves'); });
-                    }
-                    return response.json();
-                })
-                .then(leaves => {
-                    const leave = leaves.find(l => l.id === id);
-                    if (!leave) throw new Error('Leave not found');
-                    const modalDetails = document.getElementById('modal-details');
-                    modalDetails.innerHTML = '';
-                    const statusClass = `status-${leave.status.toLowerCase()}`;
-                    const card = document.createElement('div');
-                    card.className = 'leave-card';
-                    card.innerHTML = `
-                        <h3 class="leave-card-title">${leave.name}</h3>
-                        <p>Employee ID: ${leave.emp_id}</p>
-                        <p>Email: ${leave.email}</p>
-                        <p>Leave Type: ${leave.leave_type}</p>
-                        <p>Period: ${formatDisplayDate(leave.from_date)} to ${formatDisplayDate(leave.to_date)}</p>
-                        ${leave.from_hour && leave.to_hour ? `<p>Time: ${leave.from_hour} to ${leave.to_hour}</p>` : ''}
-                        <p>Reason: ${leave.reason}</p>
-                        <p>Status: <span class="leave-card-status ${statusClass}">${leave.status}</span></p>
-                    `;
-                    modalDetails.appendChild(card);
-                    document.getElementById('modal').style.display = 'flex';
-                })
-                .catch(error => {
-                    console.error('Error fetching leave details:', error);
-                    showPopup(error.message || 'Error fetching leave details', false);
-                });
-        }
-
-        function loadCalendar() {
-            const daysContainer = document.getElementById('days');
-            const today = new Date();
-            const currentYear = today.getFullYear();
-            const currentMonth = today.getMonth() + 1;
-            const firstDayOfMonth = new Date(currentYear, currentMonth - 1, 1).getDay();
-            const daysInMonth = new Date(currentYear, currentMonth, 0).getDate();
-
-            daysContainer.innerHTML = '';
-
-            // Add empty days for the first week
-            for (let i = 0; i < firstDayOfMonth; i++) {
-                const emptyDay = document.createElement('div');
-                emptyDay.className = 'day';
-                daysContainer.appendChild(emptyDay);
-            }
-
-            // Add days of the month
-            for (let day = 1; day <= daysInMonth; day++) {
-                const dayElement = document.createElement('div');
-                dayElement.className = 'day';
-                dayElement.textContent = day;
-
-                // Check if this day is a holiday
-                const monthHolidays = holidays[currentMonth];
-                if (monthHolidays && monthHolidays[day]) {
-                    dayElement.classList.add('holiday');
-                    dayElement.setAttribute('data-tooltip', monthHolidays[day]);
-                }
-
-                // Check if this day has an approved leave
-                const empId = document.getElementById('emp-id').value;
-                if (empId) {
-                    fetch(`${API_BASE_URL}/api/leaves/${empId}`)
-                        .then(response => {
-                            if (!response.ok) {
-                                return response.json().then(err => { throw new Error(err.error || 'Failed to fetch leaves'); });
-                            }
-                            return response.json();
-                        })
-                        .then(leaves => {
-                            const leaveOnThisDay = leaves.find(l => {
-                                const leaveDate = new Date(l.from_date);
-                                return leaveDate.getFullYear() === currentYear &&
-                                       leaveDate.getMonth() + 1 === currentMonth &&
-                                       leaveDate.getDate() === day &&
-                                       l.status === 'Approved';
-                            });
-
-                            if (leaveOnThisDay) {
-                                dayElement.classList.add('leave');
-                                dayElement.setAttribute('data-tooltip', `Leave Type: ${leaveOnThisDay.leave_type}`);
-                            }
-                        })
-                        .catch(error => console.error('Error fetching leaves for calendar:', error));
-                }
-
-                // Highlight today
-                if (day === today.getDate() && currentMonth === today.getMonth() + 1 && currentYear === today.getFullYear()) {
-                    dayElement.classList.add('today');
-                    dayElement.setAttribute('data-tooltip', 'Today');
-                }
-
-                daysContainer.appendChild(dayElement);
-            }
-        }
-
-        // Holidays data
-        const holidays = {
-            1: { 1: "New Year's Day", 15: "Makar Sankranti", 26: "Republic Day" },
-            2: { 26: "Maha Shivaratri" },
-            3: { 14: "Holi" },
-            4: { 6: "Ram Navami", 18: "Good Friday" },
-            8: { 15: "Independence Day", 16: "Krishna Janmashtami", 27: "Ganesh Chaturthi" },
-            10: { 2: "Gandhi Jayanti", 2: "Dussehra", 21: "Diwali" },
-            12: { 25: "Christmas" }
+        // Store leave details
+        pendingLeaveDetails = {
+            name: document.getElementById('name').value,
+            emp_id: document.getElementById('emp-id').value,
+            email: document.getElementById('email').value,
+            leave_type: document.getElementById('leave-type').value,
+            from_date: document.getElementById('from-date').value,
+            to_date: document.getElementById('to-date').value,
+            from_hour: document.getElementById('from-hour').value || null,
+            to_hour: document.getElementById('to-hour').value || null,
+            reason: document.getElementById('reason').value
         };
 
-        function showPopup(message, isSuccess) {
-            const popup = document.getElementById('popup-card');
-            popup.textContent = message;
-            popup.style.background = isSuccess
-                ? 'linear-gradient(135deg, #4facfe, #00f2fe)'
-                : 'linear-gradient(135deg, #ff6666, #ff9999)';
-            popup.classList.add('show');
-            setTimeout(() => {
-                popup.classList.remove('show');
-                popup.classList.add('hide');
-                setTimeout(() => {
-                    popup.classList.remove('hide');
-                }, 500);
-            }, 5000);
+        // Check for overlapping approved leaves
+        checkOverlappingLeaves(pendingLeaveDetails);
+    });
+
+    // Confirmation modal buttons
+    document.getElementById('confirm-submit').addEventListener('click', function () {
+        document.getElementById('confirmation-modal').style.display = 'none';
+        if (pendingLeaveDetails) {
+            submitLeaveRequest(pendingLeaveDetails);
+        }
+    });
+
+    document.getElementById('cancel-submit').addEventListener('click', function () {
+        document.getElementById('confirmation-modal').style.display = 'none';
+        pendingLeaveDetails = null;
+    });
+
+    // Modal close functionality for details modal
+    document.querySelectorAll('.close').forEach(closeBtn => {
+        closeBtn.addEventListener('click', function () {
+            this.closest('.modal').style.display = 'none';
+        });
+    });
+
+    window.addEventListener('click', function (event) {
+        if (event.target === document.getElementById('modal')) {
+            document.getElementById('modal').style.display = 'none';
+        }
+        if (event.target === document.getElementById('confirmation-modal')) {
+            document.getElementById('confirmation-modal').style.display = 'none';
+            pendingLeaveDetails = null;
+        }
+    });
+
+    // View All modal event listeners
+    document.getElementById('view-all-btn').addEventListener('click', () => {
+        document.getElementById('all-leaves-modal').style.display = 'flex';
+    });
+
+    document.querySelector('.all-leaves-close').addEventListener('click', () => {
+        document.getElementById('all-leaves-modal').style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === document.getElementById('all-leaves-modal')) {
+            document.getElementById('all-leaves-modal').style.display = 'none';
+        }
+    });
+}
+
+function checkOverlappingLeaves(leaveDetails) {
+    fetch(`${API_BASE_URL}/api/leaves/${leaveDetails.emp_id}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch existing leaves');
+            }
+            return response.json();
+        })
+        .then(leaves => {
+            const newFromDate = new Date(leaveDetails.from_date);
+            const newToDate = new Date(leaveDetails.to_date);
+
+            const hasOverlap = leaves.some(leave => {
+                if (leave.status !== 'Approved') return false;
+                const existingFromDate = new Date(leave.from_date);
+                const existingToDate = new Date(leave.to_date);
+                return !(newToDate < existingFromDate || newFromDate > existingToDate);
+            });
+
+            if (hasOverlap) {
+                showPopup('Cannot apply leave: Overlaps with existing approved leave', false);
+                pendingLeaveDetails = null;
+            } else {
+                // Show confirmation modal if no overlap
+                document.getElementById('confirmation-modal').style.display = 'flex';
+            }
+        })
+        .catch(error => {
+            console.error('Error checking overlapping leaves:', error);
+            showPopup('Error checking leave conflicts', false);
+            pendingLeaveDetails = null;
+        });
+}
+
+function submitLeaveRequest(leaveDetails) {
+    fetch(`${API_BASE_URL}/api/leaves`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(leaveDetails)
+    })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(err => { throw new Error(err.error || 'Unknown server error'); });
+            }
+            return response.json();
+        })
+        .then(() => {
+            showPopup('Leave request submitted successfully', true);
+            document.getElementById('leave-form').reset();
+            document.querySelectorAll('#hour-selection').forEach(el => el.style.display = 'none');
+            cachedLeaves = []; // Clear cache to force refresh
+            fetchAndUpdateLeaves();
+            updateLeaveStats();
+            pendingLeaveDetails = null;
+        })
+        .catch(error => {
+            console.error('Error submitting leave:', error);
+            showPopup(error.message || 'Error submitting leave request', false);
+            pendingLeaveDetails = null;
+        });
+}
+
+// Validation functions
+function validateName() {
+    const nameInput = document.getElementById('name');
+    const errorMessage = document.getElementById('error-message-name');
+    const regex = /^[A-Za-z]+(?:\.[A-Za-z]+)*(?: [A-Za-z]+)*(?:\.[A-Za-z]+){0,3}$/;
+
+    if (!regex.test(nameInput.value)) {
+        errorMessage.textContent = "Invalid name. No leading/trailing spaces, no consecutive spaces, max 8 spaces, max 3 periods.";
+        errorMessage.style.display = 'block';
+        return false;
+    } else {
+        errorMessage.style.display = 'none';
+        return true;
+    }
+}
+
+function validateEmpId() {
+    const empIdInput = document.getElementById('emp-id');
+    const errorMessage = document.getElementById('error-message-emp-id');
+    const regex = /^[ATS]{3}0(?!000)[0-9]{3}$/;
+
+    if (!regex.test(empIdInput.value)) {
+        errorMessage.textContent = "Please enter a valid Employee ID (ATS0 followed by 3 digits, not all zeros).";
+        errorMessage.style.display = 'block';
+        return false;
+    } else {
+        errorMessage.style.display = 'none';
+        return true;
+    }
+}
+
+function validateEmail() {
+    const emailInput = document.getElementById('email');
+    const errorMessage = document.getElementById('error-message-email');
+    const regex = /^[a-zA-Z][a-zA-Z0-9._-]{1,}[a-zA-Z]@astrolitetech\.com$/;
+
+    if (!regex.test(emailInput.value)) {
+        errorMessage.textContent = "Email must start with a letter, end with a letter, and have a domain of @astrolitetech.com.";
+        errorMessage.style.display = 'block';
+        return false;
+    } else {
+        errorMessage.style.display = 'none';
+        return true;
+    }
+}
+
+function validateReason() {
+    const reasonInput = document.getElementById('reason');
+    const errorMessage = document.getElementById('error-message-reason');
+    const pattern = /^[A-Za-z][A-Za-z0-9\s,.]*$/;
+    const invalidConsecutive = /(,{2,}|\.{2,}|\s{2,}|,\s,|\.\s\.|,\s\.|\.\s,)/;
+
+    errorMessage.textContent = '';
+    errorMessage.style.display = 'none';
+
+    if (reasonInput.value.length < 5 || reasonInput.value.length > 100) {
+        errorMessage.textContent = "Reason must be between 5 and 100 characters.";
+        errorMessage.style.display = 'block';
+        return false;
+    }
+
+    if (!pattern.test(reasonInput.value)) {
+        errorMessage.textContent = "Reason must start with a letter and can only contain letters, numbers, spaces, commas, and periods.";
+        errorMessage.style.display = 'block';
+        return false;
+    }
+
+    if (invalidConsecutive.test(reasonInput.value)) {
+        errorMessage.textContent = "Reason contains invalid consecutive characters (e.g., ',,' or '..').";
+        errorMessage.style.display = 'block';
+        return false;
+    }
+
+    return true;
+}
+
+function validateFromDate() {
+    const fromDateInput = document.getElementById('from-date');
+    const errorMessage = document.getElementById('error-message-from-date');
+    const today = new Date();
+    const threeMonthsAgo = new Date();
+    threeMonthsAgo.setMonth(today.getMonth() - 3);
+    const oneYearFromNow = new Date();
+    oneYearFromNow.setFullYear(today.getFullYear() + 1);
+
+    const selectedDate = new Date(fromDateInput.value);
+
+    if (selectedDate < threeMonthsAgo || selectedDate > oneYearFromNow) {
+        errorMessage.textContent = `From Date must be between ${threeMonthsAgo.toLocaleDateString()} and ${oneYearFromNow.toLocaleDateString()}.`;
+        errorMessage.style.display = 'block';
+        return false;
+    } else {
+        errorMessage.style.display = 'none';
+        return true;
+    }
+}
+
+function validateToDate() {
+    const fromDateInput = document.getElementById('from-date');
+    const toDateInput = document.getElementById('to-date');
+    const errorMessage = document.getElementById('error-message-to-date');
+    const today = new Date();
+    const oneYearFromNow = new Date();
+    oneYearFromNow.setFullYear(today.getFullYear() + 1);
+
+    const fromDate = new Date(fromDateInput.value);
+    const toDate = new Date(toDateInput.value);
+
+    if (toDate < fromDate) {
+        errorMessage.textContent = "To Date cannot be less than From Date.";
+        errorMessage.style.display = 'block';
+        return false;
+    } else if (toDate > oneYearFromNow) {
+        errorMessage.textContent = `To Date cannot be more than one year from now (${oneYearFromNow.toLocaleDateString()}).`;
+        errorMessage.style.display = 'block';
+        return false;
+    } else {
+        errorMessage.style.display = 'none';
+        return true;
+    }
+}
+
+function validateFromHour() {
+    const fromHourInput = document.getElementById('from-hour');
+    const toHourInput = document.getElementById('to-hour');
+    const errorMessage = document.getElementById('error-message-from-hour');
+
+    const fromHour = fromHourInput.value;
+    const toHour = toHourInput.value;
+
+    if (fromHour && toHour && fromHour >= toHour) {
+        errorMessage.textContent = "From Hour must be less than To Hour.";
+        errorMessage.style.display = 'block';
+        return false;
+    } else {
+        errorMessage.style.display = 'none';
+        return true;
+    }
+}
+
+function validateToHour() {
+    const fromHourInput = document.getElementById('from-hour');
+    const toHourInput = document.getElementById('to-hour');
+    const errorMessage = document.getElementById('error-message-to-hour');
+
+    const fromHour = fromHourInput.value;
+    const toHour = toHourInput.value;
+
+    if (fromHour && toHour && toHour <= fromHour) {
+        errorMessage.textContent = "To Hour must be at least 30 minutes after From Hour.";
+        errorMessage.style.display = 'block';
+        return false;
+    } else {
+        errorMessage.style.display = 'none';
+        return true;
+    }
+}
+
+function validateForm() {
+    const isNameValid = validateName();
+    const isEmpIdValid = validateEmpId();
+    const isEmailValid = validateEmail();
+    const isReasonValid = validateReason();
+    const isFromDateValid = validateFromDate();
+    const isToDateValid = validateToDate();
+    const isFromHourValid = validateFromHour();
+    const isToHourValid = validateToHour();
+
+    return isNameValid && isEmpIdValid && isEmailValid && isReasonValid &&
+           isFromDateValid && isToDateValid && isFromHourValid && isToHourValid;
+}
+
+function updateLeaveStats() {
+    const empId = document.getElementById('emp-id').value;
+    if (!empId || !validateEmpId()) return;
+    fetch(`${API_BASE_URL}/api/leave-stats/${empId}`)
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(err => { throw new Error(err.error || 'Failed to fetch leave stats'); });
+            }
+            return response.json();
+        })
+        .then(data => {
+            document.getElementById('allocated-leaves').textContent = data.allocatedLeaves;
+            document.getElementById('current-leaves').textContent = data.remainingLeaves;
+        })
+        .catch(error => {
+            console.error('Error fetching leave stats:', error);
+            showPopup(error.message || 'Error fetching leave stats', false);
+        });
+}
+
+function fetchAndUpdateLeaves() {
+    const empId = document.getElementById('emp-id').value;
+    if (!empId || !validateEmpId()) {
+        renderLeaves([]);
+        return;
+    }
+
+    // Show loading state
+    const leaveCardsContainer = document.getElementById('leave-cards');
+    leaveCardsContainer.innerHTML = `
+        <div class="loading-state">
+            <img src="https://cdn-icons-png.flaticon.com/512/4076/4076478.png" alt="Loading" class="no-data-img">
+            <p>Loading leave requests...</p>
+        </div>
+    `;
+
+    if (empId === lastEmpId && cachedLeaves.length > 0) {
+        // Use cached data if empId hasn't changed
+        renderLeaves(cachedLeaves);
+        loadCalendar();
+        return;
+    }
+
+    fetch(`${API_BASE_URL}/api/leaves/${empId}`)
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(err => { throw new Error(err.error || 'Failed to fetch leaves'); });
+            }
+            return response.json();
+        })
+        .then(leaves => {
+            cachedLeaves = leaves;
+            lastEmpId = empId;
+            renderLeaves(leaves);
+            loadCalendar();
+        })
+        .catch(error => {
+            console.error('Error loading leaves:', error);
+            renderLeaves([]);
+            showPopup(error.message || 'Error loading leave requests', false);
+        });
+}
+
+function renderLeaves(leaves) {
+    const leaveCardsContainer = document.getElementById('leave-cards');
+    const allLeavesContainer = document.getElementById('all-leaves-container');
+    leaveCardsContainer.innerHTML = '';
+    allLeavesContainer.innerHTML = '';
+
+    if (leaves.length === 0) {
+        leaveCardsContainer.innerHTML = `
+            <div class="no-data">
+                <img src="https://cdn-icons-png.flaticon.com/512/4076/4076478.png" alt="No Data" class="no-data-img">
+                <p>No leave requests found.</p>
+            </div>
+        `;
+        document.getElementById('view-all-btn').style.display = 'none';
+        return;
+    }
+
+    // Sort leaves by date (newest first)
+    leaves.sort((a, b) => new Date(b.from_date) - new Date(a.from_date));
+
+    // Show only 3 most recent leaves in main view
+    const recentLeaves = leaves.slice(0, 3);
+    recentLeaves.forEach(leave => {
+        leaveCardsContainer.appendChild(createLeaveCard(leave));
+    });
+
+    // Add all leaves to the modal
+    leaves.forEach(leave => {
+        allLeavesContainer.appendChild(createLeaveCard(leave));
+    });
+
+    // Show "View All" button if there are more than 3 leaves
+    document.getElementById('view-all-btn').style.display = 
+        leaves.length > 3 ? 'block' : 'none';
+}
+
+function createLeaveCard(leave) {
+    const card = document.createElement('div');
+    card.className = 'leave-card';
+    const statusClass = `status-${leave.status.toLowerCase()}`;
+    const initials = leave.name.split(' ').map(n => n[0]).join('').toUpperCase();
+
+    card.innerHTML = `
+        <div class="leave-card-header">
+            <div class="leave-card-avatar">${initials}</div>
+            <div>
+                <h3 class="leave-card-title">${leave.name}</h3>
+                <p class="leave-card-type">${leave.leave_type}</p>
+            </div>
+        </div>
+        <div class="leave-card-details">
+            <div class="leave-card-detail">
+                <span class="leave-card-label">Period:</span>
+                <span class="leave-card-value">${formatDisplayDate(leave.from_date)} - ${formatDisplayDate(leave.to_date)}</span>
+            </div>
+            ${leave.from_hour && leave.to_hour ? `
+            <div class="leave-card-detail">
+                <span class="leave-card-label">Time:</span>
+                <span class="leave-card-value">${leave.from_hour} - ${leave.to_hour}</span>
+            </div>
+            ` : ''}
+            <div class="leave-card-detail">
+                <span class="leave-card-label">Status:</span>
+                <span class="leave-card-status ${statusClass}">${leave.status}</span>
+            </div>
+        </div>
+        <button class="details-button">View Details</button>
+    `;
+    
+    // Add click event to show details
+    card.querySelector('.details-button').addEventListener('click', (e) => {
+        e.stopPropagation();
+        showDetails(leave.id);
+    });
+    card.addEventListener('click', () => showDetails(leave.id));
+    return card;
+}
+
+function formatDisplayDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function showDetails(id) {
+    const leave = cachedLeaves.find(l => l.id === id);
+    if (!leave) {
+        showPopup('Leave not found', false);
+        return;
+    }
+    const modalDetails = document.getElementById('modal-details');
+    modalDetails.innerHTML = '';
+    const statusClass = `status-${leave.status.toLowerCase()}`;
+    const card = document.createElement('div');
+    card.className = 'leave-card';
+    card.innerHTML = `
+        <h3 class="leave-card-title">${leave.name}</h3>
+        <p>Employee ID: ${leave.emp_id}</p>
+        <p>Email: ${leave.email}</p>
+        <p>Leave Type: ${leave.leave_type}</p>
+        <p>Period: ${formatDisplayDate(leave.from_date)} to ${formatDisplayDate(leave.to_date)}</p>
+        ${leave.from_hour && leave.to_hour ? `<p>Time: ${leave.from_hour} to ${leave.to_hour}</p>` : ''}
+        <p>Reason: ${leave.reason}</p>
+        <p>Status: <span class="leave-card-status ${statusClass}">${leave.status}</span></p>
+    `;
+    modalDetails.appendChild(card);
+    document.getElementById('modal').style.display = 'flex';
+}
+
+function loadCalendar() {
+    const daysContainer = document.getElementById('days');
+    const monthDisplay = document.getElementById('calendar-month');
+    const today = new Date();
+    const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+    const lastDayOfMonth = new Date(currentYear, currentMonth, daysInMonth).getDay();
+    const daysInLastMonth = new Date(currentYear, currentMonth, 0).getDate();
+
+    // Update month display
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    monthDisplay.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+
+    daysContainer.innerHTML = '';
+
+    // Add days from previous month
+    for (let i = firstDayOfMonth; i > 0; i--) {
+        const dayElement = document.createElement('div');
+        dayElement.className = 'day other-month';
+        dayElement.textContent = daysInLastMonth - i + 1;
+        daysContainer.appendChild(dayElement);
+    }
+
+    // Add days of current month
+    for (let day = 1; day <= daysInMonth; day++) {
+        const dayElement = document.createElement('div');
+        dayElement.className = 'day';
+        dayElement.textContent = day;
+
+        // Check if this day is today
+        if (day === today.getDate() && currentMonth === today.getMonth() && currentYear === today.getFullYear()) {
+            dayElement.classList.add('today');
+            dayElement.setAttribute('data-tooltip', 'Today');
         }
 
-        // Update leave stats and reload leaves when emp-id changes
-        document.getElementById('emp-id').addEventListener('change', () => {
-            updateLeaveStats();
-            loadLeaves();
-            loadCalendar();
+        // Check if this day is a holiday
+        const monthHolidays = holidays[currentMonth + 1];
+        if (monthHolidays && monthHolidays[day]) {
+            dayElement.classList.add('holiday');
+            dayElement.setAttribute('data-tooltip', monthHolidays[day]);
+        }
+
+        // Check if this day has an approved leave using cached data
+        const leaveOnThisDay = cachedLeaves.find(l => {
+            const leaveDate = new Date(l.from_date);
+            const leaveEndDate = new Date(l.to_date);
+            const currentDate = new Date(currentYear, currentMonth, day);
+            return l.status === 'Approved' &&
+                   currentDate >= leaveDate &&
+                   currentDate <= leaveEndDate;
         });
+
+        if (leaveOnThisDay) {
+            dayElement.classList.add('leave');
+            dayElement.setAttribute('data-tooltip', `Leave Type: ${leaveOnThisDay.leave_type}`);
+        }
+
+        daysContainer.appendChild(dayElement);
+    }
+
+    // Add days from next month
+    for (let i = 1; i <= (6 - lastDayOfMonth); i++) {
+        const dayElement = document.createElement('div');
+        dayElement.className = 'day other-month';
+        dayElement.textContent = i;
+        daysContainer.appendChild(dayElement);
+    }
+}
+
+// Holidays data
+const holidays = {
+    1: { 1: "New Year's Day", 15: "Makar Sankranti", 26: "Republic Day" },
+    2: { 26: "Maha Shivaratri" },
+    3: { 14: "Holi" },
+    4: { 6: "Ram Navami", 18: "Good Friday" },
+    8: { 15: "Independence Day", 16: "Krishna Janmashtami", 27: "Ganesh Chaturthi" },
+    10: { 2: "Gandhi Jayanti", 2: "Dussehra", 21: "Diwali" },
+    12: { 25: "Christmas" }
+};
+
+function showPopup(message, isSuccess) {
+    const popup = document.getElementById('popup-card');
+    popup.textContent = message;
+    popup.style.background = isSuccess
+        ? 'linear-gradient(135deg, #6a11cb, #2575fc)'
+        : 'linear-gradient(135deg, #ff6666, #ff9999)';
+    popup.classList.add('show');
+    setTimeout(() => {
+        popup.classList.remove('show');
+        popup.classList.add('hide');
+        setTimeout(() => {
+            popup.classList.remove('hide');
+        }, 500);
+    }, 5000);
+}
     </script>
 </body>
 </html>

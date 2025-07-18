@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HR Leave Management</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-color: #5f06a8;
@@ -29,94 +28,87 @@
         }
 
         body {
-            background-color: #ffffff;
+            background-color: #f9f9ff;
             color: var(--text-color);
             line-height: 1.6;
         }
 
         .container {
-            max-width: 1550px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         /* Header Styles */
         header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
             position: relative;
-            text-align: center;
-            height: 140px;
-            background: linear-gradient(rgb(10, 10, 255),rgb(203, 11, 242));
-            color: #fff;
-            border-radius: 15px;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            color: white;
-            font-weight: 700;
-            letter-spacing: 1px;
+        .header-content {
             position: relative;
             z-index: 2;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            text-align: center;
         }
 
-        header p {
-            font-weight: 300;
+        .header-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .header-content p {
             font-size: 1.1rem;
-            margin-top: 10px;
             opacity: 0.9;
+            font-weight: 300;
         }
 
-        @keyframes moveCircles {
-            0% { transform: translateY(0) translateX(0); }
-            50% { transform: translateY(-50%) translateX(-50%); }
-            100% { transform: translateY(0) translateX(0); }
-        }
-
-        .banner-background {
+        .header-decoration {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: 1;
-            overflow: hidden;
+            opacity: 0.1;
         }
 
-        .circle {
+        .header-decoration .circle {
             position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .header-decoration .circle:nth-child(1) {
+            width: 150px;
+            height: 150px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .header-decoration .circle:nth-child(2) {
             width: 200px;
             height: 200px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: moveCircles 15s infinite linear;
+            bottom: 15%;
+            right: 10%;
+            animation-delay: 2s;
         }
 
-        .circle:nth-child(1) {
-            top: 10%;
-            left: 20%;
-            animation-duration: 15s;
-        }
-
-        .circle:nth-child(2) {
+        .header-decoration .circle:nth-child(3) {
+            width: 100px;
+            height: 100px;
             top: 50%;
-            left: 70%;
-            animation-duration: 20s;
-            animation-direction: reverse;
-        }
-
-        .circle:nth-child(3) {
-            top: 80%;
-            left: 40%;
-            animation-duration: 25s;
+            right: 20%;
+            animation-delay: 4s;
         }
 
         @keyframes float {
@@ -133,7 +125,7 @@
             box-shadow: var(--box-shadow);
             display: flex;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: space-between;
             flex-wrap: wrap;
             gap: 1rem;
         }
@@ -149,8 +141,7 @@
             color: var(--dark-color);
         }
 
-        .filter-group select,
-        .filter-group input {
+        .filter-group select {
             padding: 0.5rem 1rem;
             border: 1px solid #e0e0e0;
             border-radius: var(--border-radius);
@@ -160,32 +151,10 @@
             transition: var(--transition);
         }
 
-        .filter-group input {
-            width: 250px;
-        }
-
-        .filter-group select:focus,
-        .filter-group input:focus {
+        .filter-group select:focus {
             outline: none;
             border-color: var(--primary-color);
             box-shadow: 0 0 0 2px rgba(95, 6, 168, 0.2);
-        }
-
-        .search-bar {
-            position: relative;
-        }
-
-        .search-bar i {
-            position: absolute;
-            left: 0.75rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-color);
-            opacity: 0.6;
-        }
-
-        .search-bar input {
-            padding-left: 2.5rem;
         }
 
         /* Leaves Section */
@@ -219,7 +188,7 @@
 
         .leaves-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 1.5rem;
         }
 
@@ -294,18 +263,6 @@
             font-size: 0.9rem;
             color: var(--primary-color);
             font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .leave-days {
-            background: rgba(95, 6, 168, 0.1);
-            color: var(--primary-color);
-            padding: 0.2rem 0.5rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
         }
 
         .leave-details {
@@ -326,6 +283,22 @@
 
         .detail-value {
             color: var(--dark-color);
+        }
+
+        .leave-period {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .leave-days {
+            background: rgba(95, 6, 168, 0.1);
+            color: var(--primary-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-left: 0.5rem;
         }
 
         .leave-footer {
@@ -552,45 +525,11 @@
         .popup-close:hover {
             opacity: 1;
         }
-        @media (max-width: 1024px) {
-            .container {
-                max-width: 900px;
-            }
 
-            .leaves-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .filter-section {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .filter-group {
-                width: 100%;
-            }
-
-            .filter-group input {
-                width: 100%;
-            }
-
-            header {
-                height: 120px;
-            }
-
-            header h1 {
-                font-size: 2rem;
-            }
-
-            header p {
-                font-size: 1rem;
-            }
-        }
-
+        /* Responsive Styles */
         @media (max-width: 768px) {
-            .container {
-                max-width: 100%;
-                padding: 0 15px;
+            .header-content h1 {
+                font-size: 2rem;
             }
 
             .leaves-grid {
@@ -598,80 +537,18 @@
             }
 
             .filter-section {
-                padding: 1rem;
-            }
-
-            .filter-group select,
-            .filter-group input {
-                font-size: 0.85rem;
-            }
-
-            .leave-card {
-                padding: 1.2rem;
-            }
-
-            .leave-name {
-                font-size: 1rem;
-            }
-
-            .leave-type {
-                font-size: 0.85rem;
-            }
-
-            .leave-days {
-                font-size: 0.75rem;
+                flex-direction: column;
+                align-items: flex-start;
             }
 
             .modal-content {
                 width: 95%;
-                max-width: 500px;
-            }
-
-            header {
-                height: 100px;
-            }
-
-            header h1 {
-                font-size: 1.8rem;
-            }
-
-            header p {
-                font-size: 0.9rem;
             }
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 0 10px;
-            }
-
-            .leaves-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .filter-group {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .filter-group label {
-                margin-bottom: 0.5rem;
-            }
-
-            .filter-group select,
-            .filter-group input {
-                width: 100%;
-                font-size: 0.8rem;
-            }
-
-            .leave-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .leave-avatar {
-                margin-bottom: 0.5rem;
-                margin-right: 0;
+            .header-content h1 {
+                font-size: 1.8rem;
             }
 
             .leave-actions {
@@ -683,109 +560,26 @@
                 width: 100%;
                 margin-bottom: 0.5rem;
             }
-
-            .no-data img {
-                width: 120px;
-                height: 120px;
-            }
-
-            .modal-content {
-                width: 90%;
-                max-width: 400px;
-            }
-
-            header {
-                height: 80px;
-            }
-
-            header h1 {
-                font-size: 1.5rem;
-            }
-
-            header p {
-                font-size: 0.8rem;
-                margin-top: 5px;
-            }
-
-            .circle {
-                width: 100px;
-                height: 100px;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .container {
-                padding: 0 5px;
-            }
-
-            .section-title {
-                font-size: 1.3rem;
-            }
-
-            .leave-card {
-                padding: 1rem;
-            }
-
-            .leave-name {
-                font-size: 0.9rem;
-            }
-
-            .leave-type, .leave-days {
-                font-size: 0.75rem;
-            }
-
-            .leave-detail {
-                font-size: 0.8rem;
-            }
-
-            .detail-label {
-                min-width: 80px;
-            }
-
-            .modal-title {
-                font-size: 1.1rem;
-            }
-
-            .modal-body {
-                padding: 1rem;
-            }
-
-            .popup-notification {
-                padding: 0.8rem 1rem;
-                top: 10px;
-                right: -300px;
-            }
-
-            .popup-notification.show {
-                right: 10px;
-            }
-
-            .popup-message {
-                font-size: 0.8rem;
-            }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="banner-background">
+        <div class="header-decoration">
             <div class="circle"></div>
             <div class="circle"></div>
             <div class="circle"></div>
         </div>
-        <h1>HR Leave Management</h1>
-        <p>Efficiently manage employee leave requests</p>
+        <div class="container">
+            <div class="header-content">
+                <h1>HR Leave Management</h1>
+                <p>Efficiently manage employee leave requests</p>
+            </div>
+        </div>
     </header>
 
     <main class="container">
         <section class="filter-section">
-            <div class="filter-group">
-                <label for="search-input">Search:</label>
-                <div class="search-bar">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="search-input" placeholder="Search by name or ID...">
-                </div>
-            </div>
             <div class="filter-group">
                 <label for="status-filter">Filter by Status:</label>
                 <select id="status-filter">
@@ -808,7 +602,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title">Leave Request Details</h3>
-                <button class="modal-close">×</button>
+                <button class="modal-close">&times;</button>
             </div>
             <div class="modal-body" id="modal-details"></div>
         </div>
@@ -818,16 +612,15 @@
     <div id="popup-card" class="popup-notification">
         <div class="popup-icon"></div>
         <div class="popup-message"></div>
-        <div class="popup-close">×</div>
+        <div class="popup-close">&times;</div>
     </div>
 
     <script>
-        const API_BASE_URL = 'http://16.171.140.12:3087';
+        const API_BASE_URL = 'http://16.171.140.12:3087'; // Change to 'http://192.168.1.100:3000' if using specific IP
 
         document.addEventListener('DOMContentLoaded', function () {
             loadLeaves();
             document.getElementById('status-filter').addEventListener('change', loadLeaves);
-            document.getElementById('search-input').addEventListener('input', loadLeaves);
 
             // Modal close functionality
             document.querySelector('.modal-close').addEventListener('click', function () {
@@ -849,17 +642,11 @@
 
         function loadLeaves() {
             const status = document.getElementById('status-filter').value;
-            const search = document.getElementById('search-input').value.toLowerCase();
             const url = status ? `${API_BASE_URL}/api/leaves?status=${status}` : `${API_BASE_URL}/api/leaves`;
             
             // Show loading state
             const leaveCardsContainer = document.getElementById('leave-cards');
-            leaveCardsContainer.innerHTML = `
-                <div class="no-data">
-                    <img src="https://cdn-icons-png.flaticon.com/512/4076/4076478.png" alt="Loading">
-                    <p>Loading leave requests...</p>
-                </div>
-            `;
+            leaveCardsContainer.innerHTML = '<div class="no-data"><p>Loading leave requests...</p></div>';
             
             fetch(url)
                 .then(response => {
@@ -869,16 +656,10 @@
                     return response.json();
                 })
                 .then(leaves => {
-                    const filteredLeaves = search 
-                        ? leaves.filter(leave => 
-                            leave.name.toLowerCase().includes(search) || 
-                            leave.emp_id.toLowerCase().includes(search))
-                        : leaves;
-
                     const leaveCardsContainer = document.getElementById('leave-cards');
                     leaveCardsContainer.innerHTML = '';
 
-                    if (filteredLeaves.length === 0) {
+                    if (leaves.length === 0) {
                         leaveCardsContainer.innerHTML = `
                             <div class="no-data">
                                 <img src="https://cdn-icons-png.flaticon.com/512/4076/4076478.png" alt="No Data">
@@ -888,7 +669,7 @@
                         return;
                     }
 
-                    filteredLeaves.forEach((leave, index) => {
+                    leaves.forEach((leave, index) => {
                         const card = document.createElement('div');
                         card.className = 'leave-card';
                         
@@ -907,7 +688,7 @@
                                 </div>
                                 <div class="leave-user">
                                     <h3 class="leave-name">${leave.name}</h3>
-                                    <p class="leave-type">${leave.leave_type} <span class="leave-days">${dayDiff} ${dayDiff > 1 ? 'days' : 'day'}</span></p>
+                                    <p class="leave-type">${leave.leave_type}</p>
                                 </div>
                             </div>
                             <div class="leave-details">
@@ -915,9 +696,10 @@
                                     <span class="detail-label">Employee ID:</span>
                                     <span class="detail-value">${leave.emp_id}</span>
                                 </div>
-                                <div class="leave-detail">
+                                <div class="leave-period">
                                     <span class="detail-label">Period:</span>
                                     <span class="detail-value">${formatDisplayDate(leave.from_date)} - ${formatDisplayDate(leave.to_date)}</span>
+                                    <span class="leave-days">${dayDiff} ${dayDiff > 1 ? 'days' : 'day'}</span>
                                 </div>
                                 ${leave.from_hour && leave.to_hour ? `
                                 <div class="leave-detail">
@@ -984,7 +766,7 @@
                                 </div>
                                 <div class="leave-user">
                                     <h3 class="leave-name">${leave.name}</h3>
-                                    <p class="leave-type">${leave.leave_type} <span class="leave-days">${dayDiff} ${dayDiff > 1 ? 'days' : 'day'}</span></p>
+                                    <p class="leave-type">${leave.leave_type}</p>
                                 </div>
                             </div>
                             <div class="leave-details">
@@ -996,9 +778,10 @@
                                     <span class="detail-label">Email:</span>
                                     <span class="detail-value">${leave.email || 'Not provided'}</span>
                                 </div>
-                                <div class="leave-detail">
+                                <div class="leave-period">
                                     <span class="detail-label">Period:</span>
                                     <span class="detail-value">${formatDisplayDate(leave.from_date)} - ${formatDisplayDate(leave.to_date)}</span>
+                                    <span class="leave-days">${dayDiff} ${dayDiff > 1 ? 'days' : 'day'}</span>
                                 </div>
                                 ${leave.from_hour && leave.to_hour ? `
                                 <div class="leave-detail">
